@@ -46,7 +46,19 @@ Asentamiento: {
     id_asenta_cpcons: int,                                         "PK"   
     d_asenta: Str,
     d_tipo_asenta: Str,   
+    c_tipo_asenta, int
     c_mnpio: int                                                   "FK"
+}
+
+CodigoPostal: {
+    """
+    Representa el codigo postal. Por consistencia, la llave 
+    primaria (al igual que el resto de los campos) es llamada de igual forma y corresponde al
+    campo provisto por SEPOMEX (d_codigo).
+    """
+
+    d_codigo: str,                                         "PK"   
+    id_asenta_cpcons: int                                  "FK"
 }
 ```
 
