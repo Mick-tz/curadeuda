@@ -6,7 +6,7 @@ OBS: todo path mencionado es relativo a la raíz del proyecto.
 
 De preferencia tener virtualenv y generar un environment para manejar las librerias adecuadas de python3
 
-Una vez teniendo activo el virtualenv con python 3 se requiere instalar las librerias del proyecto, ya sea en desarrollo o producción, dentro del directorio `sepomex` de este proyecto, bastará con ejecutar:
+Una vez teniendo activo el virtualenv con python 3 se requiere instalar las librerias del proyecto, ya sea en desarrollo o producción, dentro del directorio raiz de este proyecto, bastará con ejecutar:
 
 `$ pip install -r requirements.txt`
 
@@ -16,7 +16,7 @@ Si es la primera vez que ejecutas los scripts de bash, no olvides asegurarte que
 
 IMPORTANTE: El resultado de los scripts sólo es valido si se encuentran en la dirección esperada ("scripts/").
 
-Para poder correr el servidor con informacion basta con correr:
+Para poder correr el servidor con informacion basta con moverse al directorio `sepomex` y correr los siguientes comandos:
 
 `$ python manage.py makemigrations && python manage.py migrate && python manage.py filldatabase`
 
