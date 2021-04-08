@@ -2,11 +2,19 @@
 
 Para este proyecto es necesario Python 3.x
 
+OBS: todo path mencionado es relativo a la raíz del proyecto.
+
 De preferencia tener virtualenv y generar un environment para manejar las librerias adecuadas de python3
 
 Una vez teniendo activo el virtualenv con python 3 se requiere instalar las librerias del proyecto, ya sea en desarrollo o producción, dentro del directorio `sepomex` de este proyecto, bastará con ejecutar:
 
 `$ pip install -r requirements.txt`
+
+Antes de cargar la información, asegurate que el archivo "raw/CPdescargatxt/CPdescarga.txt" esté recidente y cumpla las especificaciones esperadas (la primera línea debe coincidir con el header, debe usar el símbolo "|" como separador de valores; la primera linea es contendrá los los nombres de los campos, de los cuales al menos se debe incluir: d_codigo, c_estado, d_estado, d_asenta, d_tipo_asenta, D_mnpio y c_mnpio de acuerdo a lo descrito en "wiki/Descripcion.pdf"), si no estás seguro de esto, puedes apoyarte de los scripts de bash contenidos en el directorio "scripts/" (sh scripts/script_name.sh)
+
+Si es la primera vez que ejecutas los scripts de bash, no olvides asegurarte que tengan permiso de ejecución (en caso contrario ejecuta "chmod +x scripts/script_name.sh" antes de correr el script).
+
+IMPORTANTE: El resultado de los scripts sólo es valido si se encuentran en la dirección esperada ("scripts/").
 
 Para poder correr el servidor con informacion basta con correr:
 
@@ -37,4 +45,3 @@ Si el deployment se lleva a cabo en alguna otra plataforma, consultar con el adm
 Cualquier duda contactar a alguno de los correos:
 
 > [miguel.martinez@ciencias.unam.mx](mailto:miguel.martinez@ciencias.unam.mx)
->
