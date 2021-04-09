@@ -13,7 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class MunicipioList(APIView):
     """
-    View para listar los estados
+    View para listar los municipios
     """
     # descomentar la siguiente línea cuando se tenga implementado el sistema de usuarios 
     # permission_classes = (IsAuthenticated,)
