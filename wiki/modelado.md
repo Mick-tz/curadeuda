@@ -1,5 +1,7 @@
 ## Modelado
 
+*Todos los modelos heredan de una clase base que simplemente agregar hora de creación y modificación de forma automática*
+
 *Los campos que no permiten repeticiones son procedidos por la palabra "UNIQUE", todo campo de id (claves por consitencia con notación SEPOMEX) no permite repeticiones dentro de su relación*
 
 *Los campos opcionales en los objetos se indican con la palabra "NULL"*
@@ -57,7 +59,8 @@ CodigoPostal: {
     campo provisto por SEPOMEX (d_codigo).
     """
 
-    d_codigo: str,                                         "PK"   
+    id: uuid,                                              "PK"
+    d_codigo: str,      
     id_asenta_cpcons: int                                  "FK"
 }
 ```
