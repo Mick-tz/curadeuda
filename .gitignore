@@ -12,6 +12,8 @@ sepomex/sepomex/local_settings.py
 __pycache__
 db.sqlite3
 media
+# makemigratios at deployment
+00*.py
 
 # Backup files # 
 *.bak 
