@@ -5,7 +5,7 @@ from codigos_postales.models.asentamiento import Asentamiento
 
 
 class SerializadorAsentamiento(serializers.ModelSerializer):
-    c_mnpio = SerializadorMunicipio()
+    c_mnpio = SerializadorMunicipio(read_only=True)
 
     class Meta:
         model = Asentamiento

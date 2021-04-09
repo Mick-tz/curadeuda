@@ -5,12 +5,13 @@ from sepomex.serializers.paginator_serializer import PaginatorSerializer
 # modelos y serializadores del codigo postal
 from codigos_postales.models.codigo_postal import CodigoPostal
 from codigos_postales.serializers.serializador_codigo_postal import SerializadorCodigoPostal
+from codigos_postales.models.asentamiento import Asentamiento
 
 # manejo de autenticacion y respuesta
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
-
+from rest_framework import status
 class CodigoPostalList(APIView):
     """
     View para listar los codigos postales
@@ -47,3 +48,12 @@ class CodigoPostalList(APIView):
                 'pagination_info': pagination_info.to_dict()
             }
         )
+
+    def post(self, request, format=None):
+        asentamiento = Asentamiento.objects.get(id_asenta_cpcons=request.data['id_asenta_cpcons'])
+        serializer = SerializadorCodigoPostal(data=request.data)
+        if serializer.is_valid():
+            serializer.validated_data['id_asenta_cpcons'] = asentamiento
+            serializer.save()
+            return Response({'municipio': serializer.data}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors)

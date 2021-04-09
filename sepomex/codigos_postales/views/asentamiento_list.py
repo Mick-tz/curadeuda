@@ -5,6 +5,8 @@ from sepomex.serializers.paginator_serializer import PaginatorSerializer
 # modelos y serializadores de asentamientos
 from codigos_postales.models.asentamiento import Asentamiento
 from codigos_postales.serializers.serializador_asentamiento import SerializadorAsentamiento
+from codigos_postales.models.municipio import Municipio
+from rest_framework import status
 
 # manejo de autenticacion y respuesta
 from rest_framework.views import APIView
@@ -49,6 +51,14 @@ class AsentamientoList(APIView):
             }
         )
 
+    def post(self, request, format=None):
+        municipio = Municipio.objects.get(c_mnpio=request.data['c_mnpio'])
+        serializer = SerializadorAsentamiento(data=request.data)
+        if serializer.is_valid():
+            serializer.validated_data['c_mnpio'] = municipio
+            serializer.save()
+            return Response({'asentamiento': serializer.data}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors)
 
 class AsentamientoPorCodigoList(APIView):
     """

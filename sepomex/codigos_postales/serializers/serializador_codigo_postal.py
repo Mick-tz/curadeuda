@@ -5,7 +5,7 @@ from codigos_postales.models.codigo_postal import CodigoPostal
 
 
 class SerializadorCodigoPostal(serializers.ModelSerializer):
-    id_asenta_cpcons = SerializadorAsentamiento()
+    id_asenta_cpcons = SerializadorAsentamiento(read_only=True)
 
 
     class Meta:
