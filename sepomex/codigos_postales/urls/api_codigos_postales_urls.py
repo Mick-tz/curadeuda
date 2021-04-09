@@ -4,7 +4,7 @@ from django.urls import path
 # imports de vistas
 from codigos_postales.views.estado_list import EstadoList
 from codigos_postales.views.municipio_list import MunicipioList
-from codigos_postales.views.asentamiento_list import AsentamientoList
+from codigos_postales.views.asentamiento_list import AsentamientoList, AsentamientoPorCodigoList
 from codigos_postales.views.codigo_postal_list import CodigoPostalList
 
 urlpatterns = [
@@ -25,6 +25,12 @@ urlpatterns = [
         'asentamientos',
         view=AsentamientoList.as_view(),
         name='asentamientos_list_view',
+    ),
+
+    path(
+        'asentamientos/<str:codigo_postal>',
+        view=AsentamientoPorCodigoList.as_view(),
+        name='asentamientos_por_codigo_list_view',
     ),
 
     path(

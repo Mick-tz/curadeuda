@@ -28,7 +28,7 @@ class EstadoList(APIView):
         page_size = int(request.GET['page_size']) if 'page_size' in request.GET else 32
         
         # el queryset consta de todos los estados
-        estados = Estado.objects.all()
+        estados = Estado.objects.all() if request.GET['d_estado'] == None else Estado.objects.filter(d_estado__icontains=request.GET['d_estado'])
 
         # creamos paginator con la cantidad de estados requerida
         paginator = Paginator(
