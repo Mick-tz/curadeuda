@@ -10,9 +10,11 @@ Una vez teniendo activo el virtualenv con python 3 se requiere instalar las libr
 
 `$ pip install -r requirements.txt`
 
-Antes de cargar la información, asegurate que el archivo "raw/CPdescargatxt/CPdescarga.txt" esté recidente y cumpla las especificaciones esperadas (la primera línea debe coincidir con el header, debe usar el símbolo "|" como separador de valores; la primera linea es contendrá los los nombres de los campos, de los cuales al menos se debe incluir: d_codigo, c_estado, d_estado, d_asenta, d_tipo_asenta, D_mnpio y c_mnpio de acuerdo a lo descrito en "wiki/Descripcion.pdf"), si no estás seguro de esto, puedes apoyarte de los scripts de bash contenidos en el directorio "scripts/" (sh scripts/script_name.sh)
+Antes de cargar la información, asegurate que el archivo "raw/CPdescargatxt/CPdescarga.txt" esté recidente y cumpla las especificaciones esperadas (la primera línea debe coincidir con el header, debe usar el símbolo "|" como separador de valores; la primera linea contendrá los nombres de los campos, de los cuales al menos se debe incluir: d_codigo, c_estado, d_estado, d_asenta, d_tipo_asenta, D_mnpio, id_asenta_cpcons, c_tipo_asenta y c_mnpio de acuerdo a lo descrito en "wiki/Descripcion.pdf"), si no estás seguro de esto, puedes apoyarte de los scripts de bash contenidos en el directorio "scripts/" (sh scripts/script_name.sh)
 
 Si es la primera vez que ejecutas los scripts de bash, no olvides asegurarte que tengan permiso de ejecución (en caso contrario ejecuta "chmod +x scripts/script_name.sh" antes de correr el script).
+
+OBS: Contrario a lo que se menciona en el archivo provisto por sepomex ("wiki/Descripcion.pdf"), el campo "id_asenta_cpcons" no es único (por la descripción, pareciera que debería ser el campo clave del asentamiento). De esta form, el script "scripts/prepare_raw_file.sh" lo único que hará (al momento) es modificar dicho campo para que convertirlos enteros positivos sin repeticiones.
 
 IMPORTANTE: El resultado de los scripts sólo es valido si se encuentran en la dirección esperada ("scripts/").
 
