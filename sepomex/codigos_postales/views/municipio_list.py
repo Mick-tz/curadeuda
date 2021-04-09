@@ -23,8 +23,8 @@ class MunicipioList(APIView):
         page_number = int(request.GET['page_number']) if 'page_number' in request.GET else 1
         page_size = int(request.GET['page_size']) if 'page_size' in request.GET else 20
         
-        # el queryset consta de todos los municipios
-        municipios = Municipio.objects.all()
+        # el queryset consta de todos los municipios si no se provee el nombre parcial
+        municipios = Municipio.objects.all() if request.GET['d_mnpio'] == None else Municipio.objects.filter(d_mnpio__icontains=request.GET['d_mnpio'])
 
         # creamos paginator con la cantidad de municipios requerida
         paginator = Paginator(
