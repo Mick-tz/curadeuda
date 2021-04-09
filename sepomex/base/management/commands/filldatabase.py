@@ -20,4 +20,4 @@ class Command(BaseCommand):
         for filler_class in self.FILLERS:
             filler: DBFillerInterface = filler_class()
             filler.fill_database()
-        self.stdout.write(self.style.SUCCESS('Se populó la base de datos exitosamente'))
+        self.stdout.write(self.style.SUCCESS('Se populó la base de datos, revisar el archivo "filldatabase_errors.log" en caso de que haya habido algún problema...'))
