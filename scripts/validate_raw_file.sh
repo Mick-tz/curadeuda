@@ -28,14 +28,14 @@ header=$(head -n 1 $REL_PATH)
 # echo $header
 num_spaces=$(echo $header | awk -F $separator '{print NF}')
 
-if [ $num_spaces -lt 7 ]
+if [ $num_spaces -lt 9 ]
   then
     echo 'El archivo no cuenta con todos los campos requeridos o el header (primera línea) no corresponde a la descripción de los campos, referirse a README.md para más información.\n'
     sleep 2
     exit 1
 fi
 
-for campo in d_codigo c_estado d_estado d_asenta d_tipo_asenta D_mnpio c_mnpio
+for campo in d_codigo d_asenta d_tipo_asenta D_mnpio d_estado c_estado c_tipo_asenta c_mnpio id_asenta_cpcon
   do
     echo $header | grep "|$campo|" > /dev/null
     if [ $? -ne 0 ]
