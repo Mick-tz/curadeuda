@@ -11,8 +11,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-# este se usaría si se implementa post, patch, put o delete 
-# from rest_framework import status
+
+from rest_framework import status
 
 class EstadoList(APIView):
     """
@@ -28,7 +28,7 @@ class EstadoList(APIView):
         page_size = int(request.GET['page_size']) if 'page_size' in request.GET else 32
         
         # el queryset consta de todos los estados
-        estados = Estado.objects.all() if request.GET['d_estado'] == None else Estado.objects.filter(d_estado__icontains=request.GET['d_estado'])
+        estados = Estado.objects.all() if not 'd_estado' in request.GET else Estado.objects.filter(d_estado__icontains=request.GET['d_estado'])
 
         # creamos paginator con la cantidad de estados requerida
         paginator = Paginator(
@@ -52,10 +52,9 @@ class EstadoList(APIView):
             }
         )
 
-    # A continuación, un ejemplo de como implementar el método post en caso que así se quisiera.
-    # def post(self, request, format=None):
-    #     serializer = SerializadorEstado(data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response({'estado': serializer.data}, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors)
+    def post(self, request, format=None):
+        serializer = SerializadorEstado(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'estado': serializer.data}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors)

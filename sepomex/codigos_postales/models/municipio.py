@@ -11,7 +11,8 @@ class Municipio(ModeloBase):
     c_estado: Estado = models.ForeignKey(
         Estado,
         on_delete=models.CASCADE,
-        help_text="estado al que pertenece el municipio"
+        help_text="estado al que pertenece el municipio",
+        related_name='estado'
     )
 
     def __str__(self):

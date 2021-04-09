@@ -5,7 +5,7 @@ from codigos_postales.models.municipio import Municipio
 
 
 class SerializadorMunicipio(serializers.ModelSerializer):
-    c_estado = SerializadorEstado()
+    c_estado = SerializadorEstado(read_only=True)
 
     class Meta:
         model = Municipio

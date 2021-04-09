@@ -25,7 +25,7 @@ class AsentamientoList(APIView):
         page_size = int(request.GET['page_size']) if 'page_size' in request.GET else 20
         
         # el queryset consta de todos los asentamientos, salvo que se busque por nombre
-        asentamientos = Asentamiento.objects.all() if request.GET['d_asenta'] == None else Asentamiento.objects.filter(d_asenta__icontains=request.GET['d_asenta'])
+        asentamientos = Asentamiento.objects.all() if not 'd_asenta' in request.GET else Asentamiento.objects.filter(d_asenta__icontains=request.GET['d_asenta'])
 
         # creamos paginator con la cantidad de asentamientos requerida
         paginator = Paginator(
