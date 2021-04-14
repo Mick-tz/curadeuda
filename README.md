@@ -47,3 +47,10 @@ Si el deployment se lleva a cabo en alguna otra plataforma, consultar con el adm
 Cualquier duda contactar a alguno de los correos:
 
 > [miguel.martinez@ciencias.unam.mx](mailto:miguel.martinez@ciencias.unam.mx)
+> 
+
+La versión alfa se puede encontrar en:
+> [alfa](https://prueba-sepomex-alfa.herokuapp.com/api/estados) 
+> 
+
+Naturalmente, hay que navegar entre endpoints de acuerdo a wiki/endpoints.md contactar a [miguel.martinez@ciencias.unam.mx](mailto:miguel.martinez@ciencias.unam.mx) para solicitar un usuario del admin en la versión alfa.
